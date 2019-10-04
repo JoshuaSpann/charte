@@ -1,4 +1,5 @@
-let model.patients = [
+let localModel = {}
+localModel.patients = [
 	{
 		name: 'Testy Tester',
 		age: 19,
