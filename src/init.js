@@ -3,7 +3,8 @@ let scripts = [
 	'registration-key',
 	'config',
 	'model',
-	'app'
+	'app',
+	'plugins'
 ]
 
 for (let scripts_i in scripts) {

@@ -21,6 +21,7 @@ function calculateDOB(patient) {
 function generatePatientChartingPage(patient) {
 	let section = document.createElement('section')
 	let aside = document.createElement('aside')
+	aside.appendChild(generatePatientInfoTable(patient))
 
 	for (charts_key in patient.charts) {
 		let imgPath = `img/ui_${charts_key.toLowerCase().replace(/ /g,'-').replace("'",'')}.svg`
@@ -46,6 +47,21 @@ function generatePatientChartingPage(patient) {
 function generatePatientHeader(patient) {
 }
 
+function generatePatientInfoTable(patient) {
+	let infoTable = document.createElement('table')
+	infoTable.classList.add('patient-info-summary')
+	let infoTableContent = `
+<tr/><th colspan=4 />${patient.name} &mdash; ${patient.id}
+<tr/><th/>DOB:<td/>${calculateDOB(patient)}<th/>Age:<td/>${patient.age}
+<tr/><th/>Height:</td/>${patient.height}<th/>Weight:<td/>${patient.weight}
+<tr/><th/>Gender:<td/>${patient.gender}<th/>Allergies:<td/>${patient.allergies}
+<tr/><th/>Admitting Diagnosis:<td colspan=3 />${patient.diagnosis}
+<tr/><th/>Code Status:<td colspan=3 />${patient.status}
+`
+	infoTable.innerHTML = infoTableContent
+	return infoTable
+}
+	
 function generatePatientListingTable() {
 	let patientsTable = document.createElement('table')
 	let patientsTableHeader = document.createElement('tr')

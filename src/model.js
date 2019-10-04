@@ -222,6 +222,7 @@ Patient presented to the emergency department with an empty can of tomato soup. 
 <span id="labs_display" style="font-weight: bold; font-style: italic; color: #ff0000;">**Lab results are pending</span>
 <table id="labs_hidden" width="0">
 <tbody>
+<tr/><th/>Labs Last Updated at 4:57am
 <tr>
 <td width="234"><strong>ÎåÎñÎñ</strong>
 
