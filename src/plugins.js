@@ -1,6 +1,9 @@
 (()=> {
+
+if (config.plugins.enabled == false) return
+
 let pluginScripts = [
-	'clock'
+	'charte-clock'
 ]
 
 for (let scripts_i in pluginScripts) {
