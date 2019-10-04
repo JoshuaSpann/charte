@@ -3,7 +3,8 @@
 if (config.plugins.enabled == false) return
 
 let pluginScripts = [
-	'charte-clock'
+	'charte-clock',
+	'charte-login'
 ]
 
 for (let scripts_i in pluginScripts) {
