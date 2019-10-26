@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title charte--title-current></title>
+	<link rel='stylesheet' href='main.css'/>
+</head>
+<body>
+
+<div charte--controls-container>
+<header charte--header-main>
+  <img class='charte--icon'></img>
+  <a href='#'>Patients</a>
+  <input type='search' placeholder=' Search ...'><div charte--tooltip></div></input>
+  <div charte--patient-info></div>
+  <div charte--user-area>
+    <span>user</span>
+    <a href='#'>Logout</a>
+  </div>
+  <div charte--custom-content></div>
+</header>
+
+<aside charte--navigation-main>
+   <a href='#summary'>Summary</a>
+   <a href='#results'>Results</a>
+   <a href='#orders'>Orders</a>
+   <a href='#vitals'>Vitals</a>
+   <a href='#assessment'>Assessment</a>
+   <a href='#notes'>Notes</a>
+   <a href='#history'>History</a>
+   <a href='#medications'>Medications</a>
+  <div charte--custom-content></div>
+</aside>
+</div>
+
+<section charte--content-container>
+  <h1 charte--title-current></h1>
+  <div id='charte--main-content'></div>
+  <div charte--custom-content></div>
+</section>
+
+<footer>
+  <div charte--custom-content></div>
+</footer>
+
+</body>
+<script>
+let Charte = {
+	config: (configObject)=> {
+		Charte.props.config = configObject
+	},
+	props: {
+		_currentTitle: ''
+	},
+	utils: {
+		currentTitle: (newValue)=> {
+			if (newValue) {
+				Charte.view.setAllCurrentTitles(newValue)
+				Charte.props._currentTitle = String(newValue)
+			}
+			return Charte.props._currentTitle
+		}
+	},
+	view: {
+		setAllCurrentTitles: (newValue)=> {
+			let titles = document.querySelectorAll('[charte--title-current]')
+			for (let titles_i in titles) {
+				if (isNaN(titles_i)) continue
+				titles[titles_i].innerHTML = String(newValue)
+			}
+		}
+	}
+}
+
+console.log(Charte.utils.currentTitle('Test'))
+console.log(Charte.utils.currentTitle())
+let mainContent = document.querySelector('#charte--main-content')
+for (let i=0 ; i<100 ; i++) {
+	mainContent.innerHTML+='<br/>Hi there '+(i+1)
+}
+
+</script>
+</html>
